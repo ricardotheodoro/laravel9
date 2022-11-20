@@ -1,7 +1,7 @@
 
 # Setup Docker Para Projetos Laravel
 
-### Passo a passo
+### Passo a passo Laravel 9 básico
 Clone Repositório
 ```sh
 git clone https://github.com/ricardotheodoro/laravel9.git my-project
@@ -79,3 +79,59 @@ php artisan key:generate
 
 Acesse o projeto
 [http://localhost:8989](http://localhost:8989)
+
+
+### Adicionando JetStream
+
+Documentação JetStream
+[Laravel JetStream](https://jetstream.laravel.com/2.x/introduction.html)
+
+Acesse o container app com o bash
+```sh
+docker-compose exec app bash
+```
+
+Instalar dependencia laravel/jetstream
+```sh
+composer require laravel/jetstream
+```
+
+Instalar Jetstream com Livewire
+```sh
+php artisan jetstream:install livewire
+```
+
+Ou, Instalar Jetstream com Inertia
+```sh
+php artisan jetstream:install inertia
+```
+
+O container app não contém o NPM instalado
+É recomendado que a máquina local possuia a aplicação para a execução dos próximos comandos
+
+Para instalar o NPM, [Clique Aqui](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+Com as dependencias devidamente instaladas, devemos instalar e buildar as dependências do NPM
+```sh
+npm install
+```
+
+```sh
+npm run build
+```
+
+Retornar para o bash do container app
+```sh
+docker-compose exec app bash
+```
+
+
+Por fim, gerar as tabelas no banco de dados
+```sh
+php artisan migrate
+```
+
+#### ATENÇÃO
+
+Para versionar sua aplicação com o banco de dados não esqueça de remover a pasta do MySQL (.docker/*
+) do gitignore
