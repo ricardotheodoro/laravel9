@@ -15,7 +15,7 @@ Alterne para a branch laravel de sua preferência
 
 Laravel 9 com Docker
 ```sh
-git checkout laravel-com-docker
+git checkout main
 ```
 
 
